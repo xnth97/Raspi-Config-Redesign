@@ -1,12 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Layout, Row } from 'antd'
+import { Layout, Row, Col } from 'antd'
+import styles from '../components/layout/general.less'
 
 const PlaceholderPage = ({ location }) => {
     return (
-        <Row>
-            <h1>This page hasn't been implemented yet...</h1>
-        </Row>
+        <div>
+            <Row className={styles.title}>
+                Under Construction
+            </Row>
+            <Row>
+                <Col span={18} className={styles.option}>
+                    <p className={styles.subtitle}>This page hasn't been implemented yet...</p>
+                </Col>
+            </Row>
+        </div>
     )
 }
 

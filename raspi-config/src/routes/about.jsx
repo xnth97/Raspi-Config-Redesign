@@ -50,7 +50,8 @@ class About extends React.Component {
 
     handleDownloadAbort = (e) => {
         this.setState({
-            downloadVisible: false
+            downloadVisible: false,
+            downloadIndicatorVisible: false
         })
         message.error('Download aborted.')
     }
@@ -65,7 +66,16 @@ class About extends React.Component {
     render() {
         return (
             <div>
-                <Row className={styles.title}>About</Row>
+                <Row className={styles.title}>
+                    <Col span={18}>About</Col>
+                    <Col span={6} className={styles.control}>
+                        <Progress 
+                        type="circle" 
+                        percent={45} 
+                        width={48}
+                        style={ this.state.downloadIndicatorVisible ? {} : {display: 'none'} }/>
+                    </Col>
+                </Row>
                 <Row>
                     <Col span={18} className={styles.option}>
                         <p className={styles.subtitle}>{this.state.name}</p>
@@ -83,7 +93,8 @@ class About extends React.Component {
                             placeholder=""
                             ref={node => this.nameInput = node}
                             value={this.state.nameInputValue}
-                            onChange={this.nameInputOnChange}/>
+                            onChange={this.nameInputOnChange}
+                            onPressEnter={this.handleNameModalOk}/>
                         </Modal>
                     </Col>
                 </Row>
