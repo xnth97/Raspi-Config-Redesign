@@ -4,13 +4,18 @@ A redesign for Raspi-Config and its React implementation.
 
 Project for CMU 05863 Human Computer Interaction course.
 
-# Demo
-
-Directly open `raspi-config/dist/index.html` in any modern browser.
-
 # Test
 
 ```sh
 cd raspi-config
 npm install --save
+npm run start
+```
+
+# Build
+
+```sh
+cd raspi-config
+npm install --save
+npm run build
 ```
