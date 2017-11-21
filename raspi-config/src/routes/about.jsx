@@ -9,7 +9,9 @@ class About extends React.Component {
     state = {
         nameModalVisible: false,
         downloadVisible: false,
-        downloadIndicatorVisible: false
+        downloadIndicatorVisible: false,
+        name: 'MyRaspberryPi',
+        nameInputValue: 'MyRaspberryPi'
     }
 
     showNameModal = () => {
@@ -19,15 +21,24 @@ class About extends React.Component {
     }
 
     handleNameModalOk = (e) => {
+        console.log(this.nameInput)
         this.setState({
-            nameModalVisible: false
+            nameModalVisible: false,
+            name: this.state.nameInputValue
         })
         message.success('Name successfully changed.')
     }
 
     handleNameModalCancel = (e) => {
         this.setState({
-            nameModalVisible: false
+            nameModalVisible: false,
+            nameInputValue: this.state.name
+        })
+    }
+
+    nameInputOnChange = (e) => {
+        this.setState({
+            nameInputValue: e.target.value
         })
     }
 
@@ -57,7 +68,7 @@ class About extends React.Component {
                 <Row className={styles.title}>About</Row>
                 <Row>
                     <Col span={18} className={styles.option}>
-                        <p className={styles.subtitle}>MyRaspberryPi</p>
+                        <p className={styles.subtitle}>{this.state.name}</p>
                         <p className={styles.desc}>Raspberry Pi 3 Model B, 2017</p>
                     </Col>
                     <Col span={6} className={styles.control}>
@@ -68,7 +79,11 @@ class About extends React.Component {
                         onOk={this.handleNameModalOk}
                         onCancel={this.handleNameModalCancel}>
                             <p>Enter a new name for this Pi</p>
-                            <Input placeholder=""/>
+                            <Input
+                            placeholder=""
+                            ref={node => this.nameInput = node}
+                            value={this.state.nameInputValue}
+                            onChange={this.nameInputOnChange}/>
                         </Modal>
                     </Col>
                 </Row>
