@@ -10,7 +10,7 @@ class Sidebar extends React.Component {
         return (
             <Menu
             defaultSelectedKeys={[location.pathname]}
-            style={{width: 240, height: '100vh'}}
+            style={{width: 240, minHeight: '100vh'}}
             mode="inline"
             >
                 <Row style={{height: 140, textAlign: 'center'}}>

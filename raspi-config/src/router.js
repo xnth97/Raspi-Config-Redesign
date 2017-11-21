@@ -7,6 +7,7 @@ import About from './routes/about'
 import Advanced from './routes/advanced'
 import Interfacing from './routes/interfacing'
 import Localization from './routes/localization'
+import Booting from './routes/booting'
 import PlaceholderPage from './routes/placeholderPage'
 
 function RouterConfig({ history }) {
@@ -15,7 +16,7 @@ function RouterConfig({ history }) {
             <Route component={Main}>
                 <Route path="/" component={Monitor}/>
                 <Route path="/general" component={PlaceholderPage}/>
-                <Route path="/booting" component={PlaceholderPage}/>
+                <Route path="/booting" component={Booting}/>
                 <Route path="/localization" component={Localization}/>
                 <Route path="/interfacing" component={Interfacing}/>
                 <Route path="/advanced" component={Advanced}/>

@@ -22,14 +22,14 @@ class Advanced extends React.Component {
         }
     }
 
-    handleWarnOk = () => {
+    handleWarnOk = (e) => {
         this.setState({
             expandFsState: true,
             warnModalVisible: false
         })
     }
 
-    handleWarnCancel = () => {
+    handleWarnCancel = (e) => {
         this.setState({
             warnModalVisible: false
         })
