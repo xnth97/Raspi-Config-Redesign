@@ -72,7 +72,7 @@ class About extends React.Component {
                         <Progress 
                         type="circle" 
                         percent={45} 
-                        width={48}
+                        width={42}
                         style={ this.state.downloadIndicatorVisible ? {} : {display: 'none'} }/>
                     </Col>
                 </Row>
