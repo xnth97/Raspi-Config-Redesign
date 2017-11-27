@@ -96,6 +96,7 @@ class Booting extends React.Component {
                                 style={{fontSize: 16, color: this.state.bootDesktop ? '#08c' : '#fff'}}/>
                             </div>
                             <div style={{textAlign: 'center'}}>
+                                <img className='img-responsive' src={require('../assets/icon_desktop.png')}/>
                                 <p style={{fontSize: 14}}>Desktop</p>
                             </div>
                         </Card>
@@ -108,6 +109,7 @@ class Booting extends React.Component {
                                 style={{fontSize: 16, color: this.state.bootDesktop ? '#fff' : '#08c'}}/>
                             </div>
                             <div style={{textAlign: 'center'}}>
+                                <img className='img-responsive' src={require('../assets/icon_cmd.png')}/>
                                 <p style={{fontSize: 14}}>Command Line</p>
                             </div>
                         </Card>

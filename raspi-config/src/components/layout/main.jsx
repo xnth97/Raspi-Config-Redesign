@@ -11,7 +11,7 @@ const Main = ({ children, location }) => {
     return (
         <LocaleProvider locale={enUS}>
             <Layout>
-                <Sider style={{width: 240}}>
+                <Sider style={{width: 240, backgroundColor: 'white'}}>
                     <Sidebar location={ location }/>
                 </Sider>
                 <Layout>
