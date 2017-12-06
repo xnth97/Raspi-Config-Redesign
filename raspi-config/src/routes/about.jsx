@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Row, Col, Button, Modal, Input, message, Progress, Select } from 'antd'
 import styles from '../components/layout/general.less'
+import Guide from '../components/guide'
 
 class About extends React.Component {
 
@@ -10,8 +11,22 @@ class About extends React.Component {
         nameModalVisible: false,
         downloadVisible: false,
         downloadIndicatorVisible: false,
+        guidePageVisible: false,
         name: 'MyRaspberryPi',
-        nameInputValue: 'MyRaspberryPi'
+        nameInputValue: 'MyRaspberryPi',
+        downloadProgress: 40
+    }
+
+    showGuidePage = () => {
+        this.setState({
+            guidePageVisible: true
+        })
+    }
+
+    handleGuideCancel = () => {
+        this.setState({
+            guidePageVisible: false
+        })
     }
 
     showNameModal = () => {
@@ -71,7 +86,7 @@ class About extends React.Component {
                     <Col span={6} className={styles.control}>
                         <Progress 
                         type="circle" 
-                        percent={45} 
+                        percent={this.state.downloadProgress} 
                         width={42}
                         style={ this.state.downloadIndicatorVisible ? {} : {display: 'none'} }/>
                     </Col>
@@ -112,7 +127,7 @@ class About extends React.Component {
                         onCancel={this.handleDownloadHide}
                         okText="Abort"
                         cancelText="Hide">
-                            <Progress percent={45} status="active"/>
+                            <Progress percent={40} status="active"/>
                         </Modal>
                     </Col>
                 </Row>
@@ -128,6 +143,23 @@ class About extends React.Component {
                             <Select.Option value="2">Once a week</Select.Option>
                             <Select.Option value="3">Once a month</Select.Option>
                         </Select>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col span={18} className={styles.option}>
+                        <p className={styles.subtitle}>Guide</p>
+                        <p className={styles.desc}>Show the guide page of Raspi-config</p>
+                    </Col>
+                    <Col span={6} className={styles.control}>
+                        <Button onClick={this.showGuidePage}>Show Guide Page</Button>
+                        <Modal
+                        title='Guide to Raspi-config'
+                        visible={this.state.guidePageVisible}
+                        width='60vw'
+                        onCancel={this.handleGuideCancel}
+                        footer={null}>
+                            <Guide/>
+                        </Modal>
                     </Col>
                 </Row>
             </div>

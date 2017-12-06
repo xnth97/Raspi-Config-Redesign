@@ -59,7 +59,7 @@ class Interfacing extends React.Component {
                 <Row>
                     <Col span={18} className={styles.option}>
                         <p className={styles.subtitle}>Camera</p>
-                        <p className={styles.desc}>Camera is not connected to this Pi</p>
+                        <p className={styles.desc}>Camera is not connected to this Pi. If you have a compatible camera, please connect it to the proper physical interface of this Raspberry Pi under the manufacturer's instruction.</p>
                     </Col>
                     <Col span={6} className={styles.control}>
                         <Switch defaultChecked={false} disabled={true}/>

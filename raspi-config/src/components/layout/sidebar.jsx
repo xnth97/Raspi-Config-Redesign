@@ -9,7 +9,7 @@ class Sidebar extends React.Component {
 
         return (
             <Menu
-            defaultSelectedKeys={[location.pathname]}
+            defaultSelectedKeys={[location.pathname == '/' ? '/monitor' : location.pathname]}
             style={{width: 240, minHeight: '100vh'}}
             mode="inline"
             >
@@ -19,9 +19,9 @@ class Sidebar extends React.Component {
                     style={{width: 200, marginTop: 48}}
                     />
                 </Row>
-                <Menu.Item key="/">
+                <Menu.Item key="/monitor">
                     <Icon type="pie-chart"/>Monitor
-                    <Link to="/"/>
+                    <Link to="/monitor"/>
                 </Menu.Item>
                 <Menu.Item key="/general">
                     <Icon type="setting"/>General

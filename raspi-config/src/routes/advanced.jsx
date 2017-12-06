@@ -6,27 +6,27 @@ import styles from '../components/layout/general.less'
 class Advanced extends React.Component {
     location = this.props.location
     state = {
-        expandFsState: false,
-        warnModalVisible: false
+        warnModalVisible: false,
+        confirmLoading: false
     }
 
-    expandFsChanged = (e) => {
-        if (e) {
-            this.setState({
-                warnModalVisible: true
-            })
-        } else {
-            this.setState({
-                expandFsState: false
-            })
-        }
+    showWarnModal = (e) => {
+        this.setState({
+            warnModalVisible: true
+        })
     }
 
     handleWarnOk = (e) => {
         this.setState({
-            expandFsState: true,
-            warnModalVisible: false
+            confirmLoading: true
         })
+        setTimeout(() => {
+            this.setState({
+                warnModalVisible: false,
+                confirmLoading: false
+            })
+            message.success('File system of SD card is successfully expanded.')
+        }, 1500)
     }
 
     handleWarnCancel = (e) => {
@@ -45,16 +45,18 @@ class Advanced extends React.Component {
                         <p className={styles.desc}>Ensure that all of the SD card storage is available</p>
                     </Col>
                     <Col span={6} className={styles.control}>
-                        <Switch
-                        checked={this.state.expandFsState}
-                        onChange={this.expandFsChanged}
-                        />
+                        <Button
+                        type='danger'
+                        onClick={this.showWarnModal}>
+                            Expand Filesystem
+                        </Button>
                         <Modal
                         title="Confirm"
                         visible={this.state.warnModalVisible}
                         onOk={this.handleWarnOk}
                         onCancel={this.handleWarnCancel}
                         okText="Confirm"
+                        confirmLoading={this.state.confirmLoading}
                         >
                             <p>Are you sure you want to expand your filesystem?</p>
                             <p>This operation cannot be revoked.</p>

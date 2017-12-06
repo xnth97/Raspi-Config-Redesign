@@ -3,13 +3,15 @@ import PropTypes from 'prop-types'
 import { Row, Col, Table, Button, message, Modal } from 'antd'
 import styles from '../components/layout/general.less'
 import { Chart, Geom, Axis, Tooltip, Coord, Legend, Shape } from 'bizcharts'
+import Guide from '../components/guide'
 
 class Monitor extends React.Component {
 
     state = {
         cpuData: [],
         memData: [],
-        processData: []
+        processData: [],
+        guideVisible: this.props.location.pathname == '/' ? true : false
     }
 
     componentDidMount() {
@@ -28,6 +30,12 @@ class Monitor extends React.Component {
                 message.success('Process ' + e + ' terminated successfully.')
             },
             onCancel() {}
+        })
+    }
+
+    onGuideOk = () => {
+        this.setState({
+            guideVisible: false
         })
     }
 
@@ -88,7 +96,6 @@ class Monitor extends React.Component {
 
     render() {
         const {cpuData, memData, processData} = this.state
-        const {location} = this.props
 
         const columns = [{
             title: 'Name',
@@ -132,6 +139,14 @@ class Monitor extends React.Component {
 
         return (
             <div>
+                <Modal
+                title='Guide to Raspi-config'
+                visible={this.state.guideVisible}
+                width='60vw'
+                onCancel={this.onGuideOk}
+                footer={null}>
+                    <Guide/>
+                </Modal>
                 <Row>
                     <p className={styles.title}>Monitor</p>
                 </Row>
