@@ -39,7 +39,7 @@ class Interfacing extends React.Component {
                 <Row>
                     <Col span={18} className={styles.option}>
                         <p className={styles.subtitle}>Remote Command Line (SSH)</p>
-                        <p className={styles.desc}>To start SSH session to Pi, open terminal and type <code>ssh pi@10.0.0.2</code> then press return, or click the button below</p>
+                        <p className={styles.desc}>To start an <a href="javascript:window.open('https://en.wikipedia.org/wiki/Secure_Shell')">SSH</a> session to Pi, open terminal and type <code>ssh pi@10.0.0.2</code> then press return, or click the button below</p>
                         <p><Button disabled={!this.state.sshBtnEnable} onClick={this.startSSH}>Start SSH session</Button></p>
                     </Col>
                     <Col span={6} className={styles.control}>
@@ -49,7 +49,7 @@ class Interfacing extends React.Component {
                 <Row>
                     <Col span={18} className={styles.option}>
                         <p className={styles.subtitle}>Remote Graphical Desktop (VNC)</p>
-                        <p className={styles.desc}>To start a remote desktop to Raspberry Pi, make an VNC connection to <code>vnc://10.0.0.2:1</code>, or click the button below</p>
+                        <p className={styles.desc}>To start an <a href="javascript:window.open('https://en.wikipedia.org/wiki/Virtual_Network_Computing')">VNC</a> connection to Raspberry Pi, make an VNC connection to <code>vnc://10.0.0.2:1</code>, or click the button below</p>
                         <p><Button disabled={!this.state.vncBtnEnable} onClick={this.startVNC}>Start VNC session</Button></p>
                     </Col>
                     <Col span={6} className={styles.control}>

@@ -152,7 +152,7 @@ class Monitor extends React.Component {
                 </Row>
                 <Row>
                     <Col span={12} className={styles.option}>
-                        <Row><p className={styles.subtitle}>CPU</p></Row>
+                        <Row><p className={styles.subtitle}>CPU usage (%)</p></Row>
                         <Row>
                             <Chart
                             height={320}
@@ -167,7 +167,7 @@ class Monitor extends React.Component {
                         </Row>
                     </Col>
                     <Col span={12} className={styles.option}>
-                        <Row><p className={styles.subtitle}>Memory</p></Row>
+                        <Row><p className={styles.subtitle}>Memory allocation (MB)</p></Row>
                         <Row>
                             <Chart
                             height={320}

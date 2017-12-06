@@ -14,7 +14,7 @@ class About extends React.Component {
         guidePageVisible: false,
         name: 'MyRaspberryPi',
         nameInputValue: 'MyRaspberryPi',
-        downloadProgress: 40
+        downloadProgress: 0
     }
 
     showGuidePage = () => {
@@ -59,14 +59,32 @@ class About extends React.Component {
 
     showDownload = () => {
         this.setState({
+            downloadProgress: 0,
             downloadVisible: true
         })
+        for (var i = 0; i < 10; i ++) {
+            setTimeout(() => {
+                if (this.state.downloadProgress >= 100) {
+                    return
+                }
+                this.setState({
+                    downloadProgress: this.state.downloadProgress + 10
+                })
+                if (this.state.downloadProgress == 100) {
+                    this.setState({
+                        downloadVisible: false
+                    })
+                    message.success('Download complete. Ready to install the system update.')
+                }
+            }, 500 * i)
+        }
     }
 
     handleDownloadAbort = (e) => {
         this.setState({
             downloadVisible: false,
-            downloadIndicatorVisible: false
+            downloadIndicatorVisible: false,
+            downloadProgress: 0
         })
         message.error('Download aborted.')
     }
@@ -127,7 +145,7 @@ class About extends React.Component {
                         onCancel={this.handleDownloadHide}
                         okText="Abort"
                         cancelText="Hide">
-                            <Progress percent={40} status="active"/>
+                            <Progress percent={this.state.downloadProgress} status="active"/>
                         </Modal>
                     </Col>
                 </Row>

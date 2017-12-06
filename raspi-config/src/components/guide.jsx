@@ -8,7 +8,7 @@ class Guide extends React.Component {
             <div>
                 <Row className={styles.option}>
                     <p className={styles.guidetitle}><Icon type="pie-chart"/> Monitor</p>
-                    <p className={styles.desc}>Monitor tab provides a monitor interface which you can check current hardware status of Raspberry Pi, including CPU usage percentage of each core and memory allocation status. Monitor also allows you to manage and sort your processes.</p>
+                    <p className={styles.desc}>Monitor tab provides a monitor interface which you can check current hardware status of Raspberry Pi, including CPU usage percentage of each core and memory allocation status. Monitor also allows you to manage and sort your running processes.</p>
                 </Row>
                 <Row className={styles.option}>
                     <p className={styles.guidetitle}><Icon type="setting"/> General</p>
@@ -24,11 +24,11 @@ class Guide extends React.Component {
                 </Row>
                 <Row className={styles.option}>
                     <p className={styles.guidetitle}><Icon type="swap" /> Interfacing</p>
-                    <p className={styles.desc}>Interfacing tab provides controls regarding remote access to this Raspberry Pi, including command line mode (<a href="https://en.wikipedia.org/wiki/Secure_Shell">SSH</a>) and remote graphical desktop (<a href="https://en.wikipedia.org/wiki/Virtual_Network_Computing">VNC</a>). You can also manage physical devices that you connect to this Pi in Interfacing tab.</p>
+                    <p className={styles.desc}>Interfacing tab provides controls regarding remote access to this Raspberry Pi, including command line mode (<a href="javascript:window.open('https://en.wikipedia.org/wiki/Secure_Shell')">SSH</a>) and remote graphical desktop (<a href="javascript:window.open('https://en.wikipedia.org/wiki/Virtual_Network_Computing')">VNC</a>). You can also manage physical devices that you connect to this Pi in Interfacing tab.</p>
                 </Row>
                 <Row className={styles.option}>
                     <p className={styles.guidetitle}><Icon type="rocket" /> Advanced</p>
-                    <p className={styles.desc}>Advanced tab allows experienced users to take full control of this Pi by adjusting some system-level core settings. Some of the options may be irrevocable and dangerous. Please think carefully before you adjust settings in Advanced tab. If you are not clear about the options, please read the <a href="https://www.raspberrypi.org/documentation/">Raspberry Pi documentation</a>.</p>
+                    <p className={styles.desc}>Advanced tab allows experienced users to take full control of this Pi by adjusting some system-level core settings. Some of the options may be irrevocable and dangerous. Please think carefully before you adjust settings in Advanced tab. If you are not clear about the options, please read the <a href="javascript:window.open('https://www.raspberrypi.org/documentation/')">Raspberry Pi documentation</a>.</p>
                 </Row>
                 <Row className={styles.option}>
                     <p className={styles.guidetitle}><Icon type="appstore-o" /> Application</p>
