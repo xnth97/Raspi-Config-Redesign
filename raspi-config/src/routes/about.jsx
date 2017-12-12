@@ -96,6 +96,10 @@ class About extends React.Component {
         })
     }
 
+    openDocumentation = () => {
+        window.open('https://www.raspberrypi.org/documentation/')
+    }
+
     render() {
         return (
             <div>
@@ -178,6 +182,15 @@ class About extends React.Component {
                         footer={null}>
                             <Guide/>
                         </Modal>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col span={18} className={styles.option}>
+                        <p className={styles.subtitle}>Documentation</p>
+                        <p className={styles.desc}>Read the full documentation of Raspberry Pi</p>
+                    </Col>
+                    <Col span={6} className={styles.control}>
+                        <Button onClick={this.openDocumentation}>Documentation</Button>
                     </Col>
                 </Row>
             </div>

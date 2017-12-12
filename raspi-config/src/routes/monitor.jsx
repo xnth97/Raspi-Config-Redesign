@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Row, Col, Table, Button, message, Modal } from 'antd'
+import { Row, Col, Table, Button, message, Modal, Tooltip as AntTooltip } from 'antd'
 import styles from '../components/layout/general.less'
 import { Chart, Geom, Axis, Tooltip, Coord, Legend, Shape } from 'bizcharts'
 import Guide from '../components/guide'
@@ -127,12 +127,16 @@ class Monitor extends React.Component {
             key: 'actions',
             render: (process) => (
                 <div>
-                    <Button
-                    style={{marginRight: 16}}
-                    onClick={this.showInfo.bind(this, process.name)}>Information</Button>
-                    <Button
-                    type='danger'
-                    onClick={this.showTerminateDialog.bind(this, process.name)}>Terminate</Button>
+                    <AntTooltip title='Shows the detailed information of this running process.'>
+                        <Button
+                        style={{marginRight: 16}}
+                        onClick={this.showInfo.bind(this, process.name)}>Information</Button>
+                    </AntTooltip>
+                    <AntTooltip title='Terminate this running process. This will cause the selected program to stop running.'>
+                        <Button
+                        type='danger'
+                        onClick={this.showTerminateDialog.bind(this, process.name)}>Terminate</Button>
+                    </AntTooltip>
                 </div>
             )
         }]
